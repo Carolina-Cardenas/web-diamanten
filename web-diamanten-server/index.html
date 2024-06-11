@@ -7,12 +7,12 @@
 </head>
 <body>
     <h1>Listado de PDFs</h1>
+   
     <ul id="pdf-list"></ul>
-
-    <script>
+     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Ruta al endpoint que devuelve la lista de PDFs
-            const endpoint = '/pdf-list';
+            const endpoint = 'http://localhost:3000/pdf-list';
 
             // Cargar la lista de PDFs y generar los enlaces
             fetch(endpoint)
@@ -33,6 +33,6 @@
                     console.error('Error al cargar la lista de PDFs:', error);
                 });
         });
-    </script>
+    </script> 
 </body>
 </html>

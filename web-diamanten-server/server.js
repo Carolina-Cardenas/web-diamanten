@@ -1,11 +1,19 @@
 const express = require('express');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const { METHODS } = require('http');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT|| 3000;
 const publicDirectory = path.join(__dirname, 'arsredovisning');
-
+const corsOptions ={
+    origin: 'http://127.0.0.1:5500',
+    METHODS: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials:true,
+    optionSuccessStatus:204,
+}
+app.use(cors(corsOptions));
 app.use(express.static(publicDirectory));
 
 // Endpoint para obtener la lista de PDFs
